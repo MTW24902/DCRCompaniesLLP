@@ -1,0 +1,141 @@
+
+
+
+
+contract GasPolicy {
+
+    uint256 public baseGasFee = 1 gwei; // Base fee for all transactions
+
+    mapping(string => uint256) public operationCosts;
+
+
+    constructor() {
+
+        
+
+        operationCosts["simpleAlchemy"] = 2000; // Adjust based on testing
+
+        operationCosts["complexAlchemy"] = 5000;
+
+    }
+
+
+    
+
+    function calculateGasFee(string memory operation) public view returns (uint256) {
+
+        require(operationCosts[operation] > 0, "Operation not defined");
+
+        return operationCosts[operation] * baseGasFee;
+
+    }
+
+
+   
+
+    function setGasCost(string memory operation, uint256 newCost) public {
+
+
+
+        operationCosts[operation] = newCost;
+
+    }
+
+
+    
+
+    function updateBaseGasFee(uint256 newFee) public {
+
+        
+
+        baseGasFee = newFee;
+
+    }
+
+}
+
+
+
+contract AlchemyToken is ERC20 {
+
+    address public admin;
+
+    uint256 public transactionFee = 1; // Fee as a percentage (e.g., 1%)
+
+
+    constructor() ERC20("AlchemyToken", "ALCH") {
+
+        admin = msg.sender;
+
+        _mint(msg.sender, 1_000_000 * 10 ** decimals()); // Initial supply
+
+    }
+
+
+    function transferWithFee(address recipient, uint256 amount) public returns (bool) {
+
+        uint256 fee = (amount * transactionFee) / 100;
+
+        uint256 amountAfterFee = amount - fee;
+
+
+        _transfer(msg.sender, admin, fee); // Send fee to admin
+
+        _transfer(msg.sender, recipient, amountAfterFee);
+
+        return true;
+
+    }
+
+
+    
+
+    function updateTransactionFee(uint256 newFee) public {
+
+        require(msg.sender == admin, "Only admin can update fee");
+
+        require(newFee <= 10, "Fee too high"); // Limit max fee
+
+        transactionFee = newFee;
+
+    }
+
+}
+
+
+
+contract AlchemySystem {
+
+    AlchemyToken public token;
+
+    GasPolicy public gasPolicy;
+
+
+    constructor(address tokenAddress, address gasPolicyAddress) {
+
+        token = AlchemyToken(tokenAddress);
+
+        gasPolicy = GasPolicy(gasPolicyAddress);
+
+    }
+
+
+    function executeAlchemy(string memory operation) public {
+
+        uint256 gasFee = gasPolicy.calculateGasFee(operation);
+
+        require(token.balanceOf(msg.sender) >= gasFee, "Insufficient token balance");
+
+        
+
+       
+
+        token.transferFrom(msg.sender, address(this), gasFee);
+
+
+        
+
+    }
+
+}
+
