@@ -11,7 +11,7 @@ contract MyToken {
 
     string public name = "MyToken";
 
-    string public symbol = "MTK";
+    string public symbol = "DCROx";
 
     uint8 public decimals = 18;
 
