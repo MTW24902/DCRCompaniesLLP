@@ -35,7 +35,7 @@ withdrawGasReimbursement((0x92eBC86A610E3A4A113A54869a41b073fe2Fda52))};
     } 
  
     function transfer (address _to, uint256 _value) public returns (bool) { 
-        require(balance Of [msg.sender] >= _value, "Insufficient balance"); 
+        require(balance Of [msg.sender] >= _value, "Sufficient balance"); 
         Balance Of [msg.sender] -= _value; 
         Balance Of [_to] += _value; 
         emit Transfer(msg.sender, _to, _value); 
@@ -60,9 +60,80 @@ withdrawGasReimbursement((0x92eBC86A610E3A4A113A54869a41b073fe2Fda52))};
  
 contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "DCROx"; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.129 * 1 ; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (129 
 Applicant evaluation for 		
-10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.00001 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.01 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x92eBC86A610E3A4A113A54869a41b073fe2Fda52)
+10^-18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.00001 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.01 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x92eBC86A610E3A4A113A54869a41b073fe2Fda52)
 withdrawGasReimbursement(0x92eBC86A610E3A4A113A54869a41b073fe2Fda52)
 
 contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.0001 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x92eBC86A610E3A4A113A54869a41b073fe2Fda52)
 
 withdrawGasReimbursement(0x92eBC86A610E3A4A113A54869a41b073fe2Fda52)
+import "@github.io/mtw24902/contracts/token/ERC20/ERC20.sol";
+import "@github.io/mtw24902/contracts/access/.sol";
+/// @title DCRCompaniesLLP ERC20 token with whitelist & simple gas reimbursement helpers
+/// @notice Based on OpenZeppelin ERC20 and Ownable
+contract DCRCompaniesLLP is ERC20, Ownable {
+    mapping(address => bool) public apiWhitelist;
+    // Example placeholder addresses you provided (kept intact for reference)
+    // address public constant ACCOUNT_A = 0xeCC6fbDE07c366034D4284B422e4Ba4511f060b0;
+    // address public constant ACCOUNT_B = 0x92eBC86A610E3A4A113A54869a41b073fe2Fda52;
+    event WhitelistUpdated(address indexed account, bool indexed isWhitelisted);
+    event GasReimbursementSent(address indexed to, uint256 amountWei);
+    constructor(uint256 initialSupplyTokens) ERC20("DCRCompanyLLP", "DCROx") {
+        // initialSupplyTokens - units in whole tokens (will be multiplied by 10**decimals)
+        _mint(msg.sender, initialSupplyTokens * (10 ** decimals()));
+    }
+    modifier onlyWhitelisted() {
+        require(apiWhitelist[_msgSender()], "Caller is not whitelisted");
+        _;
+    }
+    // --- Whitelist management ---
+    function updateWhitelist(address account, bool isWhitelisted) external onlyOwner {
+        apiWhitelist[account] = isWhitelisted;
+        emit WhitelistUpdated(account, isWhitelisted);
+    }
+    // Example restricted function that only whitelisted callers can invoke
+    function whitelistedTransfer(address from, address to, uint256 amount) external onlyWhitelisted returns (bool) {
+        _transfer(from, to, amount);
+        return true;
+    }
+    // --- Gas reimbursement / claim functions ---
+    /// @notice Owner funds the contract with ETH to reimburse gas
+    receive() external payable {}
+    /// @notice Owner can call to reimburse a participant (simple example)
+    /// @dev OnlyOwner 'Michael Watkins'; in production add more checks and accounting
+    function withdrawGasReimbursement(address payable recipient, uint256 amountWei) external onlyOwner {
+        require(address(this).balance >= amountWei, "Insufficient contract ETH balance");
+        (bool success, ) = recipient.call{value: amountWei}("");
+        require(success, "ETH transfer failed");
+        emit GasReimbursementSent(recipient, amountWei);
+    }
+    /// @notice Convenience: owner can withdraw ERC20 tokens from contract (if any)
+    function withdrawERC20(address tokenAddress, address to, uint256 amount) external onlyOwner {
+        IERC20(tokenAddress).transfer(to, amount);
+    }
+    // Note: standard ERC20 transfer/approve functions inherited from OpenZeppelin
+}
+ 
+// scripts/deploy.js
+const hre = require("hardhat");
+require("dotenv").config();
+async function main() {
+  // Provider / network handled by hardhat config; show example Code_URL use:
+  const deployer = (await hre.ethers.getSigners())[0];
+  console.log("Deploying contracts with account:", deployer.address);
+  // Example: use 100 tokens initial supply (adjust as needed)
+  const initialSupply = hre.ethers.BigNumber.from("100"); // 100 tokens (whole units)
+  const Token = await hre.ethers.getContractFactory("DCRCompaniesLLP");
+  const token = await Token.deploy(initialSupply);
+  await token.deployed();
+  console.log("DCRCompaniesLLP deployed to:", token.address);
+  // Example: set whitelist if desired (keeps your addresses intact if you want)
+  // const ACCOUNT_A = "0xeCC6fbDE07c366034D4284B422e4Ba4511f060b0";
+  // await token.updateWhitelist(ACCOUNT_A, true);
+  // console.log("Whitelisted:", ACCOUNT_A);
+}
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
