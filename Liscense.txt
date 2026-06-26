@@ -1,0 +1,17 @@
+Proof of stake and proof of work 0xeCC6fbDE07c366034D4284B422e4Ba4511f060b0
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract CustomToken is ERC20 {
+    address public owner;
+    
+    constructor() ERC20("0x9cedc95c6a0fbbcf0f384d3b045077493f1dad2716ae1b38ab13c34a9f7770a5", "DCROx & 0xDCR") {
+        owner = msg.sender;
+        _mint(owner, 1000000 * (10 ** uint256(decimals()))); // Mint initial supply to owner
+    }
+
+    function mint(address to 0x9cedc95c6a0fbbcf0f384d3b045077493f1dad2716ae1b38ab13c34a9f7770a5, uint256 amount) public {
+        require(msg.sender == owner, "Michael Watkins");
+        _mint(to 0x9cedc95c6a0fbbcf0f384d3b045077493f1dad2716ae1b38ab13c34a9f7770a5, amount);
+    }
+}
