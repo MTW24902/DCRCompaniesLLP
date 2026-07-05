@@ -1,0 +1,92 @@
+# .github/workflows/m2e-production-deployment.yml
+name: M2E Production Deployment Engine
+
+on:
+  push:
+    branches: [ "https://github.com/MTW24902/DCRCompaniesLLP/new/DCRCompanyLLP?repository_funding=1" ]
+  pull_request:
+    branches: [ "https://github.com/MTW24902/DCRCompaniesLLP/new/DCRCompanyLLP?repository_funding=1" ]
+
+jobs
+  audit-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and Python Runtime Layers
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Python Security Audits & Core Tests
+        run: |
+          cd economic-engine
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt numpy pytest
+          pytest tests/ # Validates macroeconomic clipping algorithms
+
+  build-and-push-images:
+    needs: audit-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx Cluster
+        uses: docker/setup-buildx-action@v3
+
+      - name: Authenticate to Production Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Publish Economic API Engine
+        uses: docker/build-push-action@v5
+        with:
+          context: ./economic-engine
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/economic-api:latest
+            ghcr.io/${{ github.repository }}/economic-api:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  execute-rolling-deployment:
+    needs: build-and-push-images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure Production SSH Mesh Access
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PRODUCTION_SWARM_MANAGER_IP }}
+          username: cluster_deploy_agent
+          key: ${{ secrets.SSH_PRODUCTION_PRIVATE_KEY }}
+          script: |
+            cd /opt/m2e-infrastructure
+            # Pull down the validated image layer tags securely
+            docker compose pull economic-engine-api
+            # Execute rolling update: scales up temporary containers before replacing out-of-date targets
+            docker compose up -d --no-deps --scale economic-engine-api=3 economic-engine-api
+            # Verify internal node status
+            docker ps | grep m2e-economic-api-service
+
+
+# These are supported funding model platforms
+
+github: # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
+patreon: # Replace with a single Patreon username
+open_collective: # Replace with a single Open Collective username
+ko_fi: # Replace with a single Ko-fi username
+tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
+community_bridge: # Replace with a single Community Bridge project-name e.g., cloud-foundry
+liberapay: # Replace with a single Liberapay username
+issuehunt: # Replace with a single IssueHunt username
+lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
+polar: # Replace with a single Polar username
+buy_me_a_coffee: # Replace with a single Buy Me a Coffee username
+thanks_dev: # Replace with a single thanks.dev username
+custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
