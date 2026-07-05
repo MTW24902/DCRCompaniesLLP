@@ -90,3 +90,108 @@ polar: # Replace with a single Polar username
 buy_me_a_coffee: # Replace with a single Buy Me a Coffee username
 thanks_dev: # Replace with a single thanks.dev username
 custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
+
+# m2e-economic-engine-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: m2e-economic-api-service
+  namespace: m2e-core-production
+  labels:
+    app.kubernetes.io/name: m2e-economic-api
+    app.kubernetes.io/part-of: m2e-economy-layer
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: m2e-economic-api
+  template:
+    metadata:
+      labels:
+        app: m2e-economic-api
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - m2e-economic-api
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: economic-api-engine
+          image: ghcr.io/your-org/m2e-economic-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+              name: http-api
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: "2Gi"
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: m2e-database-credentials
+                  key: connection_string
+            - name: REDIS_URL
+              value: "redis-master.m2e-core-production.svc.cluster.local:6379"
+            - name: CIRCUIT_BREAKER_WEBHOOK
+              value: "https://internal.network"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http-api
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 2
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http-api
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: m2e-economic-api-service
+  namespace: m2e-core-production
+spec:
+  selector:
+    app: m2e-economic-api
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: http-api
+  type: ClusterIP
+  # m2e-pod-failure-chaos.yaml
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: m2e-api-pod-termination-simulation
+  namespace: m2e-core-production
+spec:
+  action: pod-failure
+  mode: fixed
+  value: '1' # Systematically terminates exactly 1 random active pod per event window
+  duration: '30s' # Simulates a hard network or memory hardware failure for 30 seconds
+  scheduler:
+    cron: '@hourly' # Executes every single hour on the production cluster
+  selector:
+    namespaces:
+      - m2e-core-production
+    labelSelectors:
+      app: m2e-economic-api
