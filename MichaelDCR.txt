@@ -209,12 +209,12 @@ contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string publ
 
 Applicant evaluation for   
 
-10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.05 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 
-contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.0129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.0129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.05 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
@@ -434,7 +434,7 @@ Applicant evaluation for   
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 
-contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.0129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.0129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.05 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)https://eth-mainnet.g.alchemy.com/nft/v3/{u1yEZCHxx7jx7xlx-rCW7deopdX7sz4w}/getContractsForOwner?owner=0x92eBC86A610E3A4A113A54869a41b073fe2Fda52&pageSize=100&withMetadata=true)https://eth-mainnet.g.alchemy.com/nft/v3
 
@@ -637,7 +637,7 @@ contract DCRCompaniesLLP {
 
        // Distribute $5 worth of tokens to stakers
 
-       uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei
+       uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $ .05 in wei
 
        // ... (Logic to distribute rewards proportionally to staked amounts)
 
@@ -725,14 +725,6 @@ System.out.println("Transaction Hash: " + transaction.getHash());
 Applicant evaluation for
 
 Inverviewer:
-
-8/26/2024
-
-Original: Student Academic Folder
-
-Copy: Registrar and Financial Aid
-
-SS-700-17 Rev. 08152013				
 
 // 5. Process the payment (e.g., update database, send notification)
 
@@ -1017,7 +1009,7 @@ contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string publ
 
 Applicant evaluation for 		
 
-10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.05 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
@@ -1267,12 +1259,12 @@ contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string publ
 
 Applicant evaluation for 		
 
-10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.05 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 
-contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.0129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.0129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.05 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
@@ -1521,12 +1513,12 @@ contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string publ
 
 Applicant evaluation for 		
 
-10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+10^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.05 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 
-contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.0129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string public symbol = "0xDCR; uint8 public decimals = 18; uint256 public totalSupply; uint256 public tokenPrice = 0.0129 * 1; // Initial price in wei mapping(address => uint256) public balanceOf; // ... (Other mappings for allowances, staking, etc.) // ... (Events for token transfers, staking, etc.) constructor() { // Calculate initial supply based on $.0018^1.8 total value totalSupply = (10 ^18) / tokenPrice; // ... (Initial token distribution logic) } // ... (Functions for token transfers, staking, etc.) function updateTokenPrice() public { // Calculate price increase based on time elapsed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $.05 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)https://eth-mainnet.g.alchemy.com/nft/v3/{u1yEZCHxx7jx7xlx-rCW7deopdX7sz4w}/getContractsForOwner?owner=0x92eBC86A610E3A4A113A54869a41b073fe2Fda52&pageSize=100&withMetadata=true)https://eth-mainnet.g.alchemy.com/nft/v3
 
@@ -1578,7 +1570,7 @@ const main = async () => {
 };
 
 
-main();sed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
+main();sed // ... (Logic for quarterly, semi-annual, annual increases) tokenPrice = newTokenPrice; // Update token price } function distributeDailyRewards() public { // Distribute $5 worth of tokens to stakers uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei // ... (Logic to distribute rewards proportionally to staked amounts) } // ... (Functions for burning tokens, accessing marketplace, etc.) } // ... ClaimGasPolicy(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
 withdrawGasReimbursement(0x62e5d0a6ce980c9B961086FeB0A7439156048C97)
 
