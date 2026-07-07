@@ -728,9 +728,9 @@ contract DCRCompaniesLLP {
 
    function distributeDailyRewards() public {
 
-       // Distribute $5 worth of tokens to stakers
+       // Distribute $.000000000000000005 worth of tokens to stakers
 
-       uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $5 in wei
+       uint256 rewardAmount = 5 / 10 ^- 18 / tokenPrice; // $.05 in wei
 
        // ... (Logic to distribute rewards proportionally to staked amounts)
 
