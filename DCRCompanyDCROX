@@ -187,15 +187,15 @@ Thread.sleep(10000); // Example: Wait 10 seconds before retrying.
 }
 }
 }
-const message = 'Hello world' // Try edit me
+const message = 'https://playcode.io/clone-0xdcr-and-dcrox--019d28e7-8179-72c1-8a7a-5618a1694d55' // Try edit me
 
 
 // Update header text
-document.querySelector('#header').innerHTML = message
+document.querySelector('#https://playcode.io/clone-0xdcr-and-dcrox--019d28e7-8179-72c1-8a7a-5618a1694d55').innerHTML = message
 
 
 // Log to console
-console.log(message)
+console.log(https://playcode.io/clone-0xdcr-and-dcrox--019d28e7-8179-72c1-8a7a-5618a1694d55)
 
 
 Smart contract code
@@ -354,7 +354,7 @@ contract MyToken)
         Balance Of[_from] -= _value; 
         Balance Of[_to] += _value; 
         allowance[_from][msg.sender] -= _value; 
-        emit Transfer (“” from, 0x92eBC86A610E3A4A113A54869a41b073fe2Fda52 to,0xeCC6fbDE07c366034D4284B422e4Ba4511f060b0 _value); 
+        emit Transfer (“0xb99890b852fcb045f0f943958f86ea9ea2edb638” from, 0x92eBC86A610E3A4A113A54869a41b073fe2Fda52 to,0xeCC6fbDE07c366034D4284B422e4Ba4511f060b0 _value); 
         return true; 
     } 
  
@@ -657,17 +657,17 @@ contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string publ
 
 withdrawGasReimbursement(0x3d0038d36210BCBda1010588a60623ea82737657)
 
-const message = 'Hello world' // Try edit me
+const message = 'https://playcode.io/clone-0xdcr-and-dcrox--019d28e7-8179-72c1-8a7a-5618a1694d55' // Try edit me
 
 
 // Update header text
 
-document.querySelector('#header').innerHTML = message
+document.querySelector('https://playcode.io/clone-0xdcr-and-dcrox--019d28e7-8179-72c1-8a7a-5618a1694d55').innerHTML = message
 
 
 // Log to console
 
-console.log(message)
+console.log(https://playcode.io/clone-0xdcr-and-dcrox--019d28e7-8179-72c1-8a7a-5618a1694d55)
 
 
 Smart contract code
@@ -877,4 +877,4 @@ contract DCRCompaniesLLP { string public name = "DCRCompaniesLLP”; string publ
 
 withdrawGasReimbursement(0x3d0038d36210BCBda1010588a60623ea82737657)https://eth-mainnet.g.alchemy.com/nft/v3/{gzstHB0i7LE4oy1YiNA40}/getContractsForOwner?owner=0x92eBC86A610E3A4A113A54869a41b073fe2Fda52&pageSize=100&withMetadata=true)https://eth-mainnet.g.alchemy.com/nft/v3
 
-/{ZD-D3m0cee9gZErjec1sg0_gJH5UPbrp}/getContractsForOwner?owner=0x92eBC86A610E3A4A113A54869a41b073fe2Fda52&pageSize=100&withMetadata=true
+/{gzstHB0i7LE4oy1YiNA40/getContractsForOwner?owner=0x92eBC86A610E3A4A113A54869a41b073fe2Fda52&pageSize=100&withMetadata=true
