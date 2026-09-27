@@ -136,4 +136,23 @@ main()
   .catch((error) => {
     console.error(error);
     process.exit(1);
-  });
+  
+name = "dcrcompaniesllpllc-traffic-router"
+main = "src/index.js"
+compatibility_date = "2026-09-27"
+
+[vars]
+PRIMARY_GATEWAY_URL = "https://2530004.playcode.site"
+BACKUP_ROUTER_URL = "https://onebetazennial.internal"
+
+# Fixed Baseline Asset Burn Parameters
+BURN_ALLOCATION_PRIMARY_USD = "947.00"
+BURN_ALLOCATION_SECONDARY_USD = "504.00"
+
+# Slippage Constraints (Basis Points)
+STANDARD_SLIPPAGE_BPS = "100"
+FAILOVER_SLIPPAGE_BPS = "300"
+
+[triggers]
+crons = [ "*/5 * * * *" ] # 5-minute telemetry health sync heartbeat
+
